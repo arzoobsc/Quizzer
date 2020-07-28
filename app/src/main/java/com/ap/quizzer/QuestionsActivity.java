@@ -7,6 +7,7 @@ import android.animation.Animator;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
@@ -52,7 +53,6 @@ public class QuestionsActivity extends AppCompatActivity {
         list.add(new QuestionModel("question 6", "a", "b", "c", "d", "c"));
         list.add(new QuestionModel("question 7", "a", "b", "c", "d", "d"));
         list.add(new QuestionModel("question 8", "a", "b", "c", "d", "d"));
-        list.add(new QuestionModel("question 9", "a", "b", "c", "d", "e"));
 
         for (int i = 0; i < 4; i++){
             optionsContainer.getChildAt(i).setOnClickListener(new View.OnClickListener() {
