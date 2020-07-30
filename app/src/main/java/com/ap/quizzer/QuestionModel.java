@@ -3,8 +3,14 @@ package com.ap.quizzer;
 public class QuestionModel {
 
     private String question, optionA, optionB, optionC, optionD, correctAns;
+    private int setNo;
 
-    public QuestionModel(String question, String optionA, String optionB, String optionC, String optionD, String correctAns) {
+    public QuestionModel(){
+//        for firebase
+    }
+
+    public QuestionModel(String question, String optionA, String optionB, String optionC, String optionD, String correctAns, int setNo) {
+        this.setNo = setNo;
         this.question = question;
         this.optionA = optionA;
         this.optionB = optionB;
@@ -59,5 +65,13 @@ public class QuestionModel {
 
     public void setCorrectAns(String correctAns) {
         this.correctAns = correctAns;
+    }
+
+    public int getSetNo() {
+        return setNo;
+    }
+
+    public void setSetNo(int setNo) {
+        this.setNo = setNo;
     }
 }
