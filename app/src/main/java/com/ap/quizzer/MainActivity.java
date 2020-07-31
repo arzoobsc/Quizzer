@@ -1,8 +1,5 @@
 /*
-* video-4 done
-* video-5A done
-* video-6 done
-* video-10 done
+part 12 done
 * */
 
 package com.ap.quizzer;
