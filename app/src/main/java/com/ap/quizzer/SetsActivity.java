@@ -8,9 +8,15 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.GridView;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
+
 public class SetsActivity extends AppCompatActivity {
 
     private GridView gridView;
+    private InterstitialAd mInterstitialAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,13 +25,15 @@ public class SetsActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        loadAds();
+
         getSupportActionBar().setTitle(getIntent().getStringExtra("title"));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         gridView = findViewById(R.id.gridView);
 
         GridAdapter adapter = new GridAdapter(getIntent().getIntExtra("sets", 0),
-                getIntent().getStringExtra("title"));
+                getIntent().getStringExtra("title"), mInterstitialAd);
         gridView.setAdapter(adapter);
     }
 
@@ -37,5 +45,18 @@ public class SetsActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void loadAds() {
+
+        AdView mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+        mInterstitialAd = new InterstitialAd(this);
+//        mInterstitialAd.setAdUnitId(getString(R.string.sample_interstitialAd_id));
+        mInterstitialAd.setAdUnitId(getResources().getString(R.string.sample_interstitialAd_id));
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
+
     }
 }
