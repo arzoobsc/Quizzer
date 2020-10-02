@@ -2,6 +2,14 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
 
 android {
+    signingConfigs {
+        debug {
+            storeFile file('D:\\Projects\\Keys\\keys.jks')
+            storePassword 'Arzoo786'
+            keyPassword 'Arzoo786'
+            keyAlias 'Key0'
+        }
+    }
     compileSdkVersion 30
     buildToolsVersion "29.0.3"
 
@@ -19,6 +27,8 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
+            debuggable true
         }
     }
 }
